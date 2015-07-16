@@ -1,10 +1,10 @@
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/airbnb/javascript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-# Airbnb JavaScript Style Guide() {
+# XPLAN ECMAScript 6 Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
-[For the ES5-only guide click here](es5/).
+With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
 ## Table of Contents
 
@@ -2103,10 +2103,6 @@
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## Chat With Us About JavaScript
-
-  - Find us on [gitter](https://gitter.im/airbnb/javascript).
-
 ## Contributors
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
@@ -2116,7 +2112,7 @@
 
 (The MIT License)
 
-Copyright (c) 2014 Airbnb
+Copyright (c) 2015 Airbnb, IRESS
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
