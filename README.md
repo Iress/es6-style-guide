@@ -1,4 +1,4 @@
-# XPLAN ECMAScript 6 Style Guide() {
+# DRAFT XPLAN ECMAScript 6 Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -39,8 +39,8 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
   1. [In the Wild](#in-the-wild)
   1. [Translation](#translation)
   1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About Javascript](#chat-with-us-about-javascript)
   1. [Contributors](#contributors)
+  1. [XPLAN Amendments](#xplan-amendments)
   1. [License](#license)
 
 ## Types
@@ -2105,6 +2105,17 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
+## XPLAN Amendments
+
+For XPLAN we have made the following amendments to the base Airbnb style
+guide. These changes are already incorporated into this document.
+
+| Section | Amendment | Reason |
+| ------- | --------- | ------ |
+
+Any changes to this style guide (whether new amendments, or pulling in
+updates from the base style guide) will need to be approved by the
+XPLAN architecture team.
 
 ## License
 
