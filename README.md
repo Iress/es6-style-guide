@@ -1018,6 +1018,34 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 ## Comparison Operators & Equality
 
   - [15.1](#15.1) <a name='15.1'></a> Use `===` and `!==` over `==` and `!=`.
+
+    In particular, if you want to check for `null` or `undefined` (eg. as
+    commonly done for function parameters), then either explicitly check for
+    both with `===`, or create a helper function that does the same thing.
+
+    > Why? Using `===` and `!==` will avoid unexpected results from coercion. It is easier to make a strict rule than to allow exceptions for the use cases that are safe.
+   
+    ```javascript
+    // bad
+    if (param != null)
+      doComplexCalculation(param);
+    }
+
+    // good
+    if (param !== undefined && param !== null) {
+      doComplexCalculation(param);
+    }
+    
+    // good
+    function isParameterDefined(param) {
+      return param !== undefined && param !== null;
+    }
+    
+    if isParameterDefined(param) {
+      doComplexCalculation(param);
+    }
+    ```
+
   - [15.2](#15.2) <a name='15.2'></a> Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
@@ -2073,6 +2101,7 @@ guide. These changes are already incorporated into this document.
 | [7.9](#7.9), [9.3](#9.3), [18.5](#18.5) | Restrict our usage of chaining. | Even when formatted well, long chains can be hard to read. Additionally, the fluent interface seems unnecessary and can be confused with pipelining. |
 | [10.2](#10.2) | Allow wildcard imports if necessary. | We can;t always control the content of 3rd party libraries we use. |
 | [13.3](#13.3) | Remove rule. | Developers should arrange variable declarations in whatever way provides best code clarity, independent of whether the variable is `const` or `let`. |
+| [15.1](#15.1) | Reiterate this rule. | There is often a desire to allow `!= null`, which we want to explicitly reject. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
