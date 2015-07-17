@@ -867,30 +867,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     const dragonball = 'z';
     ```
 
-  - [13.3](#13.3) <a name='13.3'></a> Group all your `const`s and then group all your `let`s.
-
-  > Why? This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-
-    ```javascript
-    // bad
-    let i, len, dragonball,
-        items = getItems(),
-        goSportsTeam = true;
-
-    // bad
-    let i;
-    const items = getItems();
-    let dragonball;
-    const goSportsTeam = true;
-    let len;
-
-    // good
-    const goSportsTeam = true;
-    const items = getItems();
-    let dragonball;
-    let i;
-    let length;
-    ```
+  - [13.3](#13.3) <a name='13.3'></a> ~~Rule 13.3 has been removed.~~
 
   - [13.4](#13.4) <a name='13.4'></a> Assign variables where you need them, but place them in a reasonable place.
 
@@ -2095,6 +2072,7 @@ guide. These changes are already incorporated into this document.
 | [6.4](#6.4) | Use `_.sprintf()` instead of template strings in most situations. | Because the ES6 template string syntax converted by the transpiler *before* being passed to gettext, template strings break translation. |
 | [7.9](#7.9), [9.3](#9.3), [18.5](#18.5) | Restrict our usage of chaining. | Even when formatted well, long chains can be hard to read. Additionally, the fluent interface seems unnecessary and can be confused with pipelining. |
 | [10.2](#10.2) | Allow wildcard imports if necessary. | We can;t always control the content of 3rd party libraries we use. |
+| [13.3](#13.3) | Remove rule. | Developers should arrange variable declarations in whatever way provides best code clarity, independent of whether the variable is `const` or `let`. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
