@@ -80,7 +80,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
 ## References
 
-  - [2.1](#2.1) <a name='2.1'></a> Use `const` for all of your references; avoid using `var`.
+  - [2.1](#2.1) <a name='2.1'></a> Use `const` for all of your references; never use `var`.
 
   > Why? This ensures that you can't reassign your references (mutation), which can lead to bugs and difficult to comprehend code.
 
@@ -2112,6 +2112,7 @@ guide. These changes are already incorporated into this document.
 
 | Section | Amendment | Reason |
 | ------- | --------- | ------ |
+| [2.1](#2.1) | Tighten restriction on `var`. | We don't want `var` under any circumstances, so be clear on this. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
