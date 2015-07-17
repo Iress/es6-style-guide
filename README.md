@@ -726,9 +726,9 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     export default es6;
     ```
 
-  - [10.2](#10.2) <a name='10.2'></a> Do not use wildcard imports.
+  - [10.2](#10.2) <a name='10.2'></a> Avoid wildcard imports, but if they are necessary put them in their own namespace.
 
-  > Why? This makes sure you have a single default export.
+  > Why? This enforces a single default export in modules you write.
 
     ```javascript
     // bad
@@ -736,6 +736,15 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // good
     import AirbnbStyleGuide from './AirbnbStyleGuide';
+
+    // bad - imports multiple functions
+    import * from ‘ui_toolkit’;
+
+    // okay - we can't modify the external module `ui_toolkit` to have a
+    // single export, but we can change our import to bind them to a
+    // single name in the global namespace.
+    import * as UI from ‘ui_toolkit’;
+    new UI.button(...);
     ```
 
   - [10.3](#10.3) <a name='10.3'></a>And do not export directly from an import.
@@ -2085,6 +2094,7 @@ guide. These changes are already incorporated into this document.
 | [3.7](#3.7) | Remove rule. | Developers should arrange property introductions in whatever way provides best code clarity. Sometimes this will be achieved by using logical groups. |
 | [6.4](#6.4) | Use `_.sprintf()` instead of template strings in most situations. | Because the ES6 template string syntax converted by the transpiler *before* being passed to gettext, template strings break translation. |
 | [7.9](#7.9), [9.3](#9.3), [18.5](#18.5) | Restrict our usage of chaining. | Even when formatted well, long chains can be hard to read. Additionally, the fluent interface seems unnecessary and can be confused with pipelining. |
+| [10.2](#10.2) | Allow wildcard imports if necessary. | We can;t always control the content of 3rd party libraries we use. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
