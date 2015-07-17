@@ -394,9 +394,9 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```
 
   <a name="es6-template-literals"></a>
-  - [6.4](#6.4) <a name='6.4'></a> When programmatically building up strings, use template strings instead of concatenation.
+  - [6.4](#6.4) <a name='6.4'></a> When programmatically building up strings, use [_.sprintf](http://epeli.github.io/underscore.string/#sprintf-string-format-arguments-gt-string) instead of template strings or concatenation.
 
-  > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
+  > Why? printf formatting gives you a readable, concise syntax with proper newlines and string interpolation features, and is compatible with gettext-style translation libraries.
 
     ```javascript
     // bad
@@ -408,10 +408,17 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     function sayHi(name) {
       return ['How are you, ', name, '?'].join();
     }
+    
+    // okay
+    function sayHi(name) {
+      // The string literal is not passed to the translation engine, so a
+      // template string is acceptable.
+      window.console.log(`How are you, ${name}?`);
+    }
 
     // good
     function sayHi(name) {
-      return `How are you, ${name}?`;
+      return _.sprintf(gettext(`How are you, %s`), name);
     }
     ```
 
@@ -2088,6 +2095,7 @@ guide. These changes are already incorporated into this document.
 | [2.1](#2.1) | Tighten restriction on `var`. | We don't want `var` under any circumstances, so be clear on this. |
 | [3.2](#3.2) | Relax restriction on (formerly) reserved words. | We don't support IE8, and the transpiler converts reserved words anyway. A motivating example is that some 3rd party libraries use them as function names, which we overwrite. |
 | [3.7](#3.7) | Remove rule. | Developers should arrange property introductions in whatever way provides best code clarity. Sometimes this will be achieved by using logical groups. |
+| [6.4](#6.4) | Use `_.sprintf()` instead of template strings in most situations. | Because the ES6 template string syntax converted by the transpiler *before* being passed to gettext, template strings break translation. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
