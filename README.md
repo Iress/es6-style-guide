@@ -138,7 +138,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     const item = {};
     ```
 
-  - [3.2](#3.2) <a name='3.2'></a> If your code will be executed in browsers in script context, don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61). It’s OK to use them in ES6 modules and server-side code.
+  - [3.2](#3.2) <a name='3.2'></a> Avoid using [reserved words](http://es5.github.io/#x7.6.1) as keys, where that is within your control.
 
     ```javascript
     // bad
@@ -2113,6 +2113,7 @@ guide. These changes are already incorporated into this document.
 | Section | Amendment | Reason |
 | ------- | --------- | ------ |
 | [2.1](#2.1) | Tighten restriction on `var`. | We don't want `var` under any circumstances, so be clear on this. |
+| [3.2](#3.2) | Relax restriction on (formerly) reserved words. | We don't support IE8, and the transpiler converts reserved words anyway. A motivating example is that some 3rd party libraries use them as function names, which we overwrite. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
