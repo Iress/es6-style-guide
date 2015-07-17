@@ -1139,6 +1139,29 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     }
     ```
 
+  - [16.3](#16.3) <a name='16.3'></a> Blocks should always be across multiple lines.
+
+    ```javascript
+    // bad - no braces (rule 16.1)
+    if (test) return false;
+
+    // bad
+    if (test) { return false; }
+
+    // good
+    if (test) {
+      return false;
+    }
+
+    // bad
+    function() { return false; }
+
+    // good
+    function() {
+      return false;
+    }
+    ```
+
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -2103,6 +2126,8 @@ guide. These changes are already incorporated into this document.
 | [13.3](#13.3) | Remove rule. | Developers should arrange variable declarations in whatever way provides best code clarity, independent of whether the variable is `const` or `let`. |
 | [15.1](#15.1) | Reiterate this rule. | There is often a desire to allow `!= null`, which we want to explicitly reject. |
 | [15.3](#15.3) | Reverse rule. | We prefer code to be explicit, which means avoiding the implicit tests of shortcuts. |
+| [16.3](#16.3) | Forbid single-line blocks. | This makes all blocks consistent, and there is no obvious benefit to single-line blocks. |
+
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
