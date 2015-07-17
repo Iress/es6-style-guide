@@ -1062,26 +1062,26 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     }
     ```
 
-  - [15.3](#15.3) <a name='15.3'></a> Use shortcuts.
+  - [15.3](#15.3) <a name='15.3'></a> Do not use shortcuts, we prefer explicit tests.
 
     ```javascript
     // bad
-    if (name !== '') {
-      // ...stuff...
-    }
-
-    // good
     if (name) {
       // ...stuff...
     }
 
+    // good
+    if (name !== '') {
+      // ...stuff...
+    }
+
     // bad
-    if (collection.length > 0) {
+    if (collection.length) {
       // ...stuff...
     }
 
     // good
-    if (collection.length) {
+    if (collection.length > 0) {
       // ...stuff...
     }
     ```
@@ -2102,6 +2102,7 @@ guide. These changes are already incorporated into this document.
 | [10.2](#10.2) | Allow wildcard imports if necessary. | We can;t always control the content of 3rd party libraries we use. |
 | [13.3](#13.3) | Remove rule. | Developers should arrange variable declarations in whatever way provides best code clarity, independent of whether the variable is `const` or `let`. |
 | [15.1](#15.1) | Reiterate this rule. | There is often a desire to allow `!= null`, which we want to explicitly reject. |
+| [15.3](#15.3) | Reverse rule. | We prefer code to be explicit, which means avoiding the implicit tests of shortcuts. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
