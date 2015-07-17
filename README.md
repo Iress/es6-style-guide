@@ -241,34 +241,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     };
     ```
 
-  - [3.7](#3.7) <a name='3.7'></a> Group your shorthand properties at the beginning of your object declaration.
-
-  > Why? It's easier to tell which properties are using the shorthand.
-
-    ```javascript
-    const anakinSkywalker = 'Anakin Skywalker';
-    const lukeSkywalker = 'Luke Skywalker';
-
-    // bad
-    const obj = {
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      lukeSkywalker,
-      episodeThree: 3,
-      mayTheFourth: 4,
-      anakinSkywalker,
-    };
-
-    // good
-    const obj = {
-      lukeSkywalker,
-      anakinSkywalker,
-      episodeOne: 1,
-      twoJediWalkIntoACantina: 2,
-      episodeThree: 3,
-      mayTheFourth: 4,
-    };
-    ```
+  - [3.7](#3.7) <a name='3.7'></a> ~~Rule 3.7 has been removed~~
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -2114,6 +2087,7 @@ guide. These changes are already incorporated into this document.
 | ------- | --------- | ------ |
 | [2.1](#2.1) | Tighten restriction on `var`. | We don't want `var` under any circumstances, so be clear on this. |
 | [3.2](#3.2) | Relax restriction on (formerly) reserved words. | We don't support IE8, and the transpiler converts reserved words anyway. A motivating example is that some 3rd party libraries use them as function names, which we overwrite. |
+| [3.7](#3.7) | Remove rule. | Developers should arrange property introductions in whatever way provides best code clarity. Sometimes this will be achieved by using logical groups. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
