@@ -545,6 +545,48 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
   count();  // 3
   ```
 
+  - [7.9](#7.9) <a name='7.9'></a> Be conservative with function chaining.
+
+    > Why? Chains can be hard to read, and [fluent-interface](https://en.wikipedia.org/wiki/Fluent_interface)-style chains are unnecessary.
+
+    Guidelines for chaining:
+
+    * Chains should be used to form a pipeline linking output of one function to the input of another. Chains should not be used as a fluent interface to aggregate loosely-coupled calls on the same object.
+    * Limit chains to a maximum of 4 function calls.
+    * Do not pass complex parameters (such as anonymous functions).
+    * Use the formatting rules in section [18.5](#18.5). ie. Use a new line for each function call in the chain, indent subsequent lines, and start each subsequent line with the "." character.
+
+    ```javascript
+    // bad - too many links in the chain
+    session
+      .getUser()
+      .getLocale()
+      .getDefaultTimeZone()
+      .getCurrentTime()
+      .asUTC();
+
+    // bad - poor formatting
+    session.getUser().getLocale().
+      formatDate(dt);
+
+    // good
+    session
+      .getUser()
+      .getLocale()
+      .formatDate(dt);
+
+    // bad - use as a fluent interface
+    rectangle
+      .setWidth(10)
+      .setHeight(5)
+      .setColour("red");
+
+    // good - multiple independent calls instead of fluent interface
+    rectangle.setWidth(10);
+    rectangle.setHeight(5);
+    rectangle.setColour("red");
+    ```
+
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -641,42 +683,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     }
     ```
 
-  - [9.3](#9.3) <a name='9.3'></a> Methods can return `this` to help with method chaining.
-
-    ```javascript
-    // bad
-    Jedi.prototype.jump = function() {
-      this.jumping = true;
-      return true;
-    };
-
-    Jedi.prototype.setHeight = function(height) {
-      this.height = height;
-    };
-
-    const luke = new Jedi();
-    luke.jump(); // => true
-    luke.setHeight(20); // => undefined
-
-    // good
-    class Jedi {
-      jump() {
-        this.jumping = true;
-        return this;
-      }
-
-      setHeight(height) {
-        this.height = height;
-        return this;
-      }
-    }
-
-    const luke = new Jedi();
-
-    luke.jump()
-      .setHeight(20);
-    ```
-
+  - [9.3](#9.3) <a name='9.3'></a> ~~Rule 9.3 has been removed.~~
 
   - [9.4](#9.4) <a name='9.4'></a> It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
@@ -1319,43 +1326,24 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```
 
   - [18.5](#18.5) <a name='18.5'></a> Use indentation when making long method chains. Use a leading dot, which
-    emphasizes that the line is a method call, not a new statement.
+    emphasizes that the line is a method call, not a new statement. Remember to [be conservative](#7.9) with
+    your chaining, keeping chains short and pipeline-oriented.
 
     ```javascript
     // bad
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+    $('#items').find('.selected').highlight().end();
 
     // bad
     $('#items').
       find('.selected').
         highlight().
-        end().
-      find('.open').
-        updateCount();
+        end();
 
     // good
     $('#items')
       .find('.selected')
         .highlight()
-        .end()
-      .find('.open')
-        .updateCount();
-
-    // bad
-    const leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
-        .attr('width', (radius + margin) * 2).append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-        .call(tron.led);
-
-    // good
-    const leds = stage.selectAll('.led')
-        .data(data)
-      .enter().append('svg:svg')
-        .classed('led', true)
-        .attr('width', (radius + margin) * 2)
-      .append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-        .call(tron.led);
+        .end();
     ```
 
   - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after blocks and before the next statement.
@@ -2096,6 +2084,7 @@ guide. These changes are already incorporated into this document.
 | [3.2](#3.2) | Relax restriction on (formerly) reserved words. | We don't support IE8, and the transpiler converts reserved words anyway. A motivating example is that some 3rd party libraries use them as function names, which we overwrite. |
 | [3.7](#3.7) | Remove rule. | Developers should arrange property introductions in whatever way provides best code clarity. Sometimes this will be achieved by using logical groups. |
 | [6.4](#6.4) | Use `_.sprintf()` instead of template strings in most situations. | Because the ES6 template string syntax converted by the transpiler *before* being passed to gettext, template strings break translation. |
+| [7.9](#7.9), [9.3](#9.3), [18.5](#18.5) | Restrict our usage of chaining. | Even when formatted well, long chains can be hard to read. Additionally, the fluent interface seems unnecessary and can be confused with pipelining. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
