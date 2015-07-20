@@ -102,13 +102,13 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     // bad
     var count = 1;
     if (true) {
-      count += 1;
+        count += 1;
     }
 
     // good, use the let.
     let count = 1;
     if (true) {
-      count += 1;
+        count += 1;
     }
     ```
 
@@ -117,8 +117,8 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // const and let only exist in the blocks they are defined in.
     {
-      let a = 1;
-      const b = 1;
+        let a = 1;
+        const b = 1;
     }
     console.log(a); // ReferenceError
     console.log(b); // ReferenceError
@@ -143,14 +143,14 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     const superman = {
-      default: { clark: 'kent' },
-      private: true,
+        default: { clark: 'kent' },
+        private: true,
     };
 
     // good
     const superman = {
-      defaults: { clark: 'kent' },
-      hidden: true,
+        defaults: { clark: 'kent' },
+        hidden: true,
     };
     ```
 
@@ -159,17 +159,17 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     const superman = {
-      class: 'alien',
+        class: 'alien',
     };
 
     // bad
     const superman = {
-      klass: 'alien',
+        klass: 'alien',
     };
 
     // good
     const superman = {
-      type: 'alien',
+        type: 'alien',
     };
     ```
 
@@ -181,21 +181,21 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
 
     function getKey(k) {
-      return `a key named ${k}`;
+        return `a key named ${k}`;
     }
 
     // bad
     const obj = {
-      id: 5,
-      name: 'San Francisco',
+        id: 5,
+        name: 'San Francisco',
     };
     obj[getKey('enabled')] = true;
 
     // good
     const obj = {
-      id: 5,
-      name: 'San Francisco',
-      [getKey('enabled')]: true,
+        id: 5,
+        name: 'San Francisco',
+        [getKey('enabled')]: true,
     };
     ```
 
@@ -205,20 +205,20 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     const atom = {
-      value: 1,
+        value: 1,
 
-      addValue: function (value) {
-        return atom.value + value;
-      },
+        addValue: function (value) {
+            return atom.value + value;
+        },
     };
 
     // good
     const atom = {
-      value: 1,
+        value: 1,
 
-      addValue(value) {
-        return atom.value + value;
-      },
+        addValue(value) {
+            return atom.value + value;
+        },
     };
     ```
 
@@ -232,12 +232,12 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // bad
     const obj = {
-      lukeSkywalker: lukeSkywalker,
+        lukeSkywalker: lukeSkywalker,
     };
 
     // good
     const obj = {
-      lukeSkywalker,
+        lukeSkywalker,
     };
     ```
 
@@ -280,7 +280,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     let i;
 
     for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
+        itemsCopy[i] = items[i];
     }
 
     // good
@@ -304,21 +304,21 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function getFullName(user) {
-      const firstName = user.firstName;
-      const lastName = user.lastName;
+        const firstName = user.firstName;
+        const lastName = user.lastName;
 
-      return `${firstName} ${lastName}`;
+        return `${firstName} ${lastName}`;
     }
 
     // good
     function getFullName(obj) {
-      const { firstName, lastName } = obj;
-      return `${firstName} ${lastName}`;
+        const { firstName, lastName } = obj;
+        return `${firstName} ${lastName}`;
     }
 
     // best
     function getFullName({ firstName, lastName }) {
-      return `${firstName} ${lastName}`;
+        return `${firstName} ${lastName}`;
     }
     ```
 
@@ -342,8 +342,8 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function processInput(input) {
-      // then a miracle occurs
-      return [left, right, top, bottom];
+        // then a miracle occurs
+        return [left, right, top, bottom];
     }
 
     // the caller needs to think about the order of return data
@@ -351,8 +351,8 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // good
     function processInput(input) {
-      // then a miracle occurs
-      return { left, right, top, bottom };
+        // then a miracle occurs
+        return { left, right, top, bottom };
     }
 
     // the caller selects only the data they need
@@ -389,8 +389,8 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // good
     const errorMessage = 'This is a super long error that was thrown because ' +
-      'of Batman. When you stop to think about how Batman had anything to do ' +
-      'with this, you would get nowhere fast.';
+        'of Batman. When you stop to think about how Batman had anything to do ' +
+        'with this, you would get nowhere fast.';
     ```
 
   <a name="es6-template-literals"></a>
@@ -401,24 +401,24 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function sayHi(name) {
-      return 'How are you, ' + name + '?';
+        return 'How are you, ' + name + '?';
     }
 
     // bad
     function sayHi(name) {
-      return ['How are you, ', name, '?'].join();
+        return ['How are you, ', name, '?'].join();
     }
     
     // okay
     function sayHi(name) {
-      // The string literal is not passed to the translation engine, so a
-      // template string is acceptable.
-      window.console.log(`How are you, ${name}?`);
+        // The string literal is not passed to the translation engine, so a
+        // template string is acceptable.
+        window.console.log(`How are you, ${name}?`);
     }
 
     // good
     function sayHi(name) {
-      return _.sprintf(gettext(`How are you, %s`), name);
+        return _.sprintf(gettext(`How are you, %s`), name);
     }
     ```
 
@@ -446,7 +446,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // immediately-invoked function expression (IIFE)
     (() => {
-      console.log('Welcome to the Internet. Please follow me.');
+        console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
@@ -456,17 +456,17 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     if (currentUser) {
-      function test() {
-        console.log('Nope.');
-      }
+        function test() {
+            console.log('Nope.');
+        }
     }
 
     // good
     let test;
     if (currentUser) {
-      test = () => {
-        console.log('Yup.');
-      };
+        test = () => {
+            console.log('Yup.');
+        };
     }
     ```
 
@@ -475,12 +475,12 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function nope(name, options, arguments) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     function yup(name, options, args) {
-      // ...stuff...
+        // ...stuff...
     }
     ```
 
@@ -492,13 +492,13 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function concatenateAll() {
-      const args = Array.prototype.slice.call(arguments);
-      return args.join('');
+        const args = Array.prototype.slice.call(arguments);
+        return args.join('');
     }
 
     // good
     function concatenateAll(...args) {
-      return args.join('');
+        return args.join('');
     }
     ```
 
@@ -508,24 +508,24 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // really bad
     function handleThings(opts) {
-      // No! We shouldn't mutate function arguments.
-      // Double bad: if opts is falsy it'll be set to an object which may
-      // be what you want but it can introduce subtle bugs.
-      opts = opts || {};
-      // ...
+        // No! We shouldn't mutate function arguments.
+        // Double bad: if opts is falsy it'll be set to an object which may
+        // be what you want but it can introduce subtle bugs.
+        opts = opts || {};
+        // ...
     }
 
     // still bad
     function handleThings(opts) {
-      if (opts === void 0) {
-        opts = {};
-      }
-      // ...
+        if (opts === void 0) {
+            opts = {};
+        }
+        // ...
     }
 
     // good
     function handleThings(opts = {}) {
-      // ...
+        // ...
     }
     ```
 
@@ -533,17 +533,17 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
   > Why? They are confusing to reason about.
 
-  ```javascript
-  var b = 1;
-  // bad
-  function count(a = b++) {
-    console.log(a);
-  }
-  count();  // 1
-  count();  // 2
-  count(3); // 3
-  count();  // 3
-  ```
+    ```javascript
+    var b = 1;
+    // bad
+    function count(a = b++) {
+        console.log(a);
+    }
+    count();  // 1
+    count();  // 2
+    count(3); // 3
+    count();  // 3
+    ```
 
   - [7.9](#7.9) <a name='7.9'></a> Be conservative with function chaining.
 
@@ -559,27 +559,27 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad - too many links in the chain
     session
-      .getUser()
-      .getLocale()
-      .getDefaultTimeZone()
-      .getCurrentTime()
-      .asUTC();
+        .getUser()
+        .getLocale()
+        .getDefaultTimeZone()
+        .getCurrentTime()
+        .asUTC();
 
     // bad - poor formatting
     session.getUser().getLocale().
-      formatDate(dt);
+        formatDate(dt);
 
     // good
     session
-      .getUser()
-      .getLocale()
-      .formatDate(dt);
+        .getUser()
+        .getLocale()
+        .formatDate(dt);
 
     // bad - use as a fluent interface
     rectangle
-      .setWidth(10)
-      .setHeight(5)
-      .setColour("red");
+        .setWidth(10)
+        .setHeight(5)
+        .setColour("red");
 
     // good - multiple independent calls instead of fluent interface
     rectangle.setWidth(10);
@@ -601,12 +601,12 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     [1, 2, 3].map(function (x) {
-      return x * x;
+        return x * x;
     });
 
     // good
     [1, 2, 3].map((x) => {
-      return x * x;
+        return x * x;
     });
     ```
 
@@ -622,7 +622,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // good
     [1, 2, 3].reduce((total, n) => {
-      return total + n;
+        return total + n;
     }, 0);
     ```
 
@@ -638,25 +638,25 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function Queue(contents = []) {
-      this._queue = [...contents];
+        this._queue = [...contents];
     }
     Queue.prototype.pop = function() {
-      const value = this._queue[0];
-      this._queue.splice(0, 1);
-      return value;
+        const value = this._queue[0];
+        this._queue.splice(0, 1);
+        return value;
     }
 
 
     // good
     class Queue {
-      constructor(contents = []) {
-        this._queue = [...contents];
-      }
-      pop() {
-        const value = this._queue[0];
-        this._queue.splice(0, 1);
-        return value;
-      }
+        constructor(contents = []) {
+            this._queue = [...contents];
+        }
+        pop() {
+            const value = this._queue[0];
+            this._queue.splice(0, 1);
+            return value;
+        }
     }
     ```
 
@@ -668,18 +668,18 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     // bad
     const inherits = require('inherits');
     function PeekableQueue(contents) {
-      Queue.apply(this, contents);
+        Queue.apply(this, contents);
     }
     inherits(PeekableQueue, Queue);
     PeekableQueue.prototype.peek = function() {
-      return this._queue[0];
+        return this._queue[0];
     }
 
     // good
     class PeekableQueue extends Queue {
-      peek() {
-        return this._queue[0];
-      }
+        peek() {
+            return this._queue[0];
+        }
     }
     ```
 
@@ -689,17 +689,17 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     class Jedi {
-      constructor(options = {}) {
-        this.name = options.name || 'no name';
-      }
+        constructor(options = {}) {
+            this.name = options.name || 'no name';
+        }
 
-      getName() {
-        return this.name;
-      }
+        getName() {
+            return this.name;
+        }
 
-      toString() {
-        return `Jedi - ${this.getName()}`;
-      }
+        toString() {
+            return `Jedi - ${this.getName()}`;
+        }
     }
     ```
 
@@ -776,7 +776,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     // bad
     let sum = 0;
     for (let num of numbers) {
-      sum += num;
+        sum += num;
     }
 
     sum === 15;
@@ -804,8 +804,8 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     const luke = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     // bad
@@ -819,12 +819,12 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     const luke = {
-      jedi: true,
-      age: 28,
+        jedi: true,
+        age: 28,
     };
 
     function getProp(prop) {
-      return luke[prop];
+        return luke[prop];
     }
 
     const isJedi = getProp('jedi');
@@ -876,43 +876,43 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // good
     function() {
-      test();
-      console.log('doing stuff..');
+        test();
+        console.log('doing stuff..');
 
-      //..other stuff..
+        //..other stuff..
 
-      const name = getName();
+        const name = getName();
 
-      if (name === 'test') {
-        return false;
-      }
+        if (name === 'test') {
+            return false;
+        }
 
-      return name;
+        return name;
     }
 
     // bad - unnecessary function call
     function(hasName) {
-      const name = getName();
+        const name = getName();
 
-      if (!hasName) {
-        return false;
-      }
+        if (!hasName) {
+            return false;
+        }
 
-      this.setFirstName(name);
+        this.setFirstName(name);
 
-      return true;
+        return true;
     }
 
     // good
     function(hasName) {
-      if (!hasName) {
-        return false;
-      }
+        if (!hasName) {
+            return false;
+        }
 
-      const name = getName();
-      this.setFirstName(name);
+        const name = getName();
+        this.setFirstName(name);
 
-      return true;
+        return true;
     }
     ```
 
@@ -927,7 +927,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+        console.log(notDefined); // => throws a ReferenceError
     }
 
     // creating a variable declaration after you
@@ -935,24 +935,24 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
     function example() {
-      console.log(declaredButNotAssigned); // => undefined
-      var declaredButNotAssigned = true;
+        console.log(declaredButNotAssigned); // => undefined
+        var declaredButNotAssigned = true;
     }
 
     // The interpreter is hoisting the variable
     // declaration to the top of the scope,
     // which means our example could be rewritten as:
     function example() {
-      let declaredButNotAssigned;
-      console.log(declaredButNotAssigned); // => undefined
-      declaredButNotAssigned = true;
+        let declaredButNotAssigned;
+        console.log(declaredButNotAssigned); // => undefined
+        declaredButNotAssigned = true;
     }
 
     // using const and let
     function example() {
-      console.log(declaredButNotAssigned); // => throws a ReferenceError
-      console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
-      const declaredButNotAssigned = true;
+        console.log(declaredButNotAssigned); // => throws a ReferenceError
+        console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
+        const declaredButNotAssigned = true;
     }
     ```
 
@@ -960,13 +960,13 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     function example() {
-      console.log(anonymous); // => undefined
+        console.log(anonymous); // => undefined
 
-      anonymous(); // => TypeError anonymous is not a function
+        anonymous(); // => TypeError anonymous is not a function
 
-      var anonymous = function() {
-        console.log('anonymous function expression');
-      };
+        var anonymous = function() {
+          console.log('anonymous function expression');
+        };
     }
     ```
 
@@ -974,27 +974,27 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     function example() {
-      console.log(named); // => undefined
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      superPower(); // => ReferenceError superPower is not defined
+        superPower(); // => ReferenceError superPower is not defined
 
-      var named = function superPower() {
-        console.log('Flying');
-      };
+        var named = function superPower() {
+            console.log('Flying');
+        };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
     function example() {
-      console.log(named); // => undefined
+        console.log(named); // => undefined
 
-      named(); // => TypeError named is not a function
+        named(); // => TypeError named is not a function
 
-      var named = function named() {
-        console.log('named');
-      }
+        var named = function named() {
+            console.log('named');
+        }
     }
     ```
 
@@ -1002,11 +1002,11 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     function example() {
-      superPower(); // => Flying
+        superPower(); // => Flying
 
-      function superPower() {
-        console.log('Flying');
-      }
+        function superPower() {
+            console.log('Flying');
+        }
     }
     ```
 
@@ -1028,21 +1028,21 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     if (param != null)
-      doComplexCalculation(param);
+        doComplexCalculation(param);
     }
 
     // good
     if (param !== undefined && param !== null) {
-      doComplexCalculation(param);
+        doComplexCalculation(param);
     }
     
     // good
     function isParameterDefined(param) {
-      return param !== undefined && param !== null;
+        return param !== undefined && param !== null;
     }
     
     if isParameterDefined(param) {
-      doComplexCalculation(param);
+        doComplexCalculation(param);
     }
     ```
 
@@ -1057,8 +1057,8 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     if ([0]) {
-      // true
-      // An array is an object, objects evaluate to true
+        // true
+        // An array is an object, objects evaluate to true
     }
     ```
 
@@ -1067,22 +1067,22 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     if (name) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (name !== '') {
-      // ...stuff...
+        // ...stuff...
     }
 
     // bad
     if (collection.length) {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     if (collection.length > 0) {
-      // ...stuff...
+        // ...stuff...
     }
     ```
 
@@ -1098,14 +1098,14 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     if (test)
-      return false;
+        return false;
 
     // good
     if (test) return false;
 
     // good
     if (test) {
-      return false;
+        return false;
     }
 
     // bad
@@ -1113,7 +1113,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // good
     function() {
-      return false;
+        return false;
     }
     ```
 
@@ -1123,19 +1123,19 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     if (test) {
-      thing1();
-      thing2();
+        thing1();
+        thing2();
     }
     else {
-      thing3();
+        thing3();
     }
 
     // good
     if (test) {
-      thing1();
-      thing2();
+        thing1();
+        thing2();
     } else {
-      thing3();
+        thing3();
     }
     ```
 
@@ -1150,7 +1150,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // good
     if (test) {
-      return false;
+        return false;
     }
 
     // bad
@@ -1158,7 +1158,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // good
     function() {
-      return false;
+        return false;
     }
     ```
 
@@ -1179,9 +1179,9 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     // @return {Element} element
     function make(tag) {
 
-      // ...stuff...
+        // ...stuff...
 
-      return element;
+        return element;
     }
 
     // good
@@ -1194,9 +1194,9 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
      */
     function make(tag) {
 
-      // ...stuff...
+        // ...stuff...
 
-      return element;
+        return element;
     }
     ```
 
@@ -1216,31 +1216,31 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // bad
     function getType() {
-      console.log('fetching type...');
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
+        console.log('fetching type...');
+        // set the default type to 'no type'
+        const type = this._type || 'no type';
 
-      return type;
+        return type;
     }
 
     // good
     function getType() {
-      console.log('fetching type...');
+        console.log('fetching type...');
 
-      // set the default type to 'no type'
-      const type = this._type || 'no type';
+        // set the default type to 'no type'
+        const type = this._type || 'no type';
 
-      return type;
+        return type;
     }
 
     // good
     function getType() {
-      console.log('fetching type...');
+        console.log('fetching type...');
 
-      /* set the default type to 'no type' */
-      const type = this._type || 'no type';
+        /* set the default type to 'no type' */
+        const type = this._type || 'no type';
 
-      return type;
+        return type;
     }
     ```
 
@@ -1250,10 +1250,10 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     class Calculator {
-      constructor() {
-        // FIXME: shouldn't use a global here
-        total = 0;
-      }
+        constructor() {
+            // FIXME: shouldn't use a global here
+            total = 0;
+        }
     }
     ```
 
@@ -1261,10 +1261,10 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     class Calculator {
-      constructor() {
-        // TODO: total should be configurable by an options param
-        this.total = 0;
-      }
+        constructor() {
+            // TODO: total should be configurable by an options param
+            this.total = 0;
+        }
     }
     ```
 
@@ -1273,12 +1273,12 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
 ## Whitespace
 
-  - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 2 spaces.
+  - [18.1](#18.1) <a name='18.1'></a> Use soft tabs set to 4 spaces.
 
     ```javascript
     // bad
     function() {
-    ∙∙∙∙const name;
+    ∙∙const name;
     }
 
     // bad
@@ -1288,7 +1288,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // good
     function() {
-    ∙∙const name;
+    ∙∙∙∙const name;
     }
     ```
 
@@ -1297,24 +1297,24 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function test(){
-      console.log('test');
+        console.log('test');
     }
 
     // good
     function test() {
-      console.log('test');
+        console.log('test');
     }
 
     // bad
     dog.set('attr',{
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+        age: '1 year',
+        breed: 'Bernese Mountain Dog',
     });
 
     // good
     dog.set('attr', {
-      age: '1 year',
-      breed: 'Bernese Mountain Dog',
+        age: '1 year',
+        breed: 'Bernese Mountain Dog',
     });
     ```
 
@@ -1323,22 +1323,22 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     if(isJedi) {
-      fight ();
+        fight ();
     }
 
     // good
     if (isJedi) {
-      fight();
+        fight();
     }
 
     // bad
     function fight () {
-      console.log ('Swooosh!');
+        console.log ('Swooosh!');
     }
 
     // good
     function fight() {
-      console.log('Swooosh!');
+        console.log('Swooosh!');
     }
     ```
 
@@ -1357,14 +1357,14 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     (function(global) {
-      // ...stuff...
+        // ...stuff...
     })(this);
     ```
 
     ```javascript
     // bad
     (function(global) {
-      // ...stuff...
+        // ...stuff...
     })(this);↵
     ↵
     ```
@@ -1372,7 +1372,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // good
     (function(global) {
-      // ...stuff...
+        // ...stuff...
     })(this);↵
     ```
 
@@ -1386,15 +1386,15 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // bad
     $('#items').
-      find('.selected').
-        highlight().
-        end();
+        find('.selected').
+            highlight().
+            end();
 
     // good
     $('#items')
-      .find('.selected')
-        .highlight()
-        .end();
+        .find('.selected')
+            .highlight()
+            .end();
     ```
 
   - [18.6](#18.6) <a name='18.6'></a> Leave a blank line after blocks and before the next statement.
@@ -1402,33 +1402,33 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     if (foo) {
-      return bar;
+        return bar;
     }
     return baz;
 
     // good
     if (foo) {
-      return bar;
+        return bar;
     }
 
     return baz;
 
     // bad
     const obj = {
-      foo() {
-      },
-      bar() {
-      },
+        foo() {
+        },
+        bar() {
+        },
     };
     return obj;
 
     // good
     const obj = {
-      foo() {
-      },
+        foo() {
+        },
 
-      bar() {
-      },
+        bar() {
+        },
     };
 
     return obj;
@@ -1444,32 +1444,32 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     const story = [
-        once
-      , upon
-      , aTime
+          once
+        , upon
+        , aTime
     ];
 
     // good
     const story = [
-      once,
-      upon,
-      aTime,
+        once,
+        upon,
+        aTime,
     ];
 
     // bad
     const hero = {
-        firstName: 'Ada'
-      , lastName: 'Lovelace'
-      , birthYear: 1815
-      , superPower: 'computers'
+          firstName: 'Ada'
+        , lastName: 'Lovelace'
+        , birthYear: 1815
+        , superPower: 'computers'
     };
 
     // good
     const hero = {
-      firstName: 'Ada',
-      lastName: 'Lovelace',
-      birthYear: 1815,
-      superPower: 'computers',
+        firstName: 'Ada',
+        lastName: 'Lovelace',
+        birthYear: 1815,
+        superPower: 'computers',
     };
     ```
 
@@ -1480,39 +1480,39 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad - git diff without trailing comma
     const hero = {
-         firstName: 'Florence',
-    -    lastName: 'Nightingale'
-    +    lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb graph', 'modern nursing']
+           firstName: 'Florence',
+    -      lastName: 'Nightingale'
+    +      lastName: 'Nightingale',
+    +      inventorOf: ['coxcomb graph', 'modern nursing']
     }
 
     // good - git diff with trailing comma
     const hero = {
-         firstName: 'Florence',
-         lastName: 'Nightingale',
-    +    inventorOf: ['coxcomb chart', 'modern nursing'],
+           firstName: 'Florence',
+           lastName: 'Nightingale',
+    +      inventorOf: ['coxcomb chart', 'modern nursing'],
     }
 
     // bad
     const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully'
+        firstName: 'Dana',
+        lastName: 'Scully'
     };
 
     const heroes = [
-      'Batman',
-      'Superman'
+        'Batman',
+        'Superman'
     ];
 
     // good
     const hero = {
-      firstName: 'Dana',
-      lastName: 'Scully',
+        firstName: 'Dana',
+        lastName: 'Scully',
     };
 
     const heroes = [
-      'Batman',
-      'Superman',
+        'Batman',
+        'Superman',
     ];
     ```
 
@@ -1526,20 +1526,20 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     (function() {
-      const name = 'Skywalker'
-      return name
+        const name = 'Skywalker'
+        return name
     })()
 
     // good
     (() => {
-      const name = 'Skywalker';
-      return name;
+        const name = 'Skywalker';
+        return name;
     })();
 
     // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
     ;(() => {
-      const name = 'Skywalker';
-      return name;
+        const name = 'Skywalker';
+        return name;
     })();
     ```
 
@@ -1635,12 +1635,12 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function q() {
-      // ...stuff...
+        // ...stuff...
     }
 
     // good
     function query() {
-      // ..stuff..
+        // ..stuff..
     }
     ```
 
@@ -1662,22 +1662,22 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function user(options) {
-      this.name = options.name;
+        this.name = options.name;
     }
 
     const bad = new user({
-      name: 'nope',
+        name: 'nope',
     });
 
     // good
     class User {
-      constructor(options) {
-        this.name = options.name;
-      }
+        constructor(options) {
+            this.name = options.name;
+        }
     }
 
     const good = new User({
-      name: 'yup',
+        name: 'yup',
     });
     ```
 
@@ -1697,25 +1697,25 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function foo() {
-      const self = this;
-      return function() {
-        console.log(self);
-      };
+        const self = this;
+        return function() {
+            console.log(self);
+        };
     }
 
     // bad
     function foo() {
-      const that = this;
-      return function() {
-        console.log(that);
-      };
+        const that = this;
+        return function() {
+            console.log(that);
+        };
     }
 
     // good
     function foo() {
-      return () => {
-        console.log(this);
-      };
+        return () => {
+            console.log(this);
+        };
     }
     ```
 
@@ -1723,7 +1723,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // file contents
     class CheckBox {
-      // ...
+        // ...
     }
     export default CheckBox;
 
@@ -1751,8 +1751,8 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     const AirbnbStyleGuide = {
-      es6: {
-      }
+        es6: {
+        }
     };
 
     export default AirbnbStyleGuide;
@@ -1786,12 +1786,12 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     if (!dragon.age()) {
-      return false;
+        return false;
     }
 
     // good
     if (!dragon.hasAge()) {
-      return false;
+        return false;
     }
     ```
 
@@ -1799,18 +1799,18 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     class Jedi {
-      constructor(options = {}) {
-        const lightsaber = options.lightsaber || 'blue';
-        this.set('lightsaber', lightsaber);
-      }
+        constructor(options = {}) {
+            const lightsaber = options.lightsaber || 'blue';
+            this.set('lightsaber', lightsaber);
+        }
 
-      set(key, val) {
-        this[key] = val;
-      }
+        set(key, val) {
+            this[key] = val;
+        }
 
-      get(key) {
-        return this[key];
-      }
+        get(key) {
+            return this[key];
+        }
     }
     ```
 
@@ -1828,7 +1828,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ...
 
     $(this).on('listingUpdated', function(e, listingId) {
-      // do something with listingId
+        // do something with listingId
     });
     ```
 
@@ -1841,7 +1841,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ...
 
     $(this).on('listingUpdated', function(e, data) {
-      // do something with data.listingId
+        // do something with data.listingId
     });
     ```
 
@@ -1867,25 +1867,25 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```javascript
     // bad
     function setSidebar() {
-      $('.sidebar').hide();
+        $('.sidebar').hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $('.sidebar').css({
-        'background-color': 'pink'
-      });
+        $('.sidebar').css({
+          'background-color': 'pink'
+        });
     }
 
     // good
     function setSidebar() {
-      const $sidebar = $('.sidebar');
-      $sidebar.hide();
+        const $sidebar = $('.sidebar');
+        $sidebar.hide();
 
-      // ...stuff...
+        // ...stuff...
 
-      $sidebar.css({
-        'background-color': 'pink'
-      });
+        $sidebar.css({
+            'background-color': 'pink'
+        });
     }
     ```
 
@@ -1951,7 +1951,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     ```javascript
     function() {
-      return true;
+        return true;
     }
     ```
 
@@ -2154,6 +2154,7 @@ guide. These changes are already incorporated into this document.
 | [15.3](#15.3) | Reverse rule. | We prefer code to be explicit, which means avoiding the implicit tests of shortcuts. |
 | [16.3](#16.3) | Forbid single-line blocks. | This makes all blocks consistent, and there is no obvious benefit to single-line blocks. |
 | [17.1](#17.1), [17.2](#17.2) | Clarify commenting guidelines. | The existing guidelines were vague about multi-line explanatory comments. |
+| [18.1](#18.1) | Use 4 space soft tabs for indenting. | Consistency with our other languages, and we just prefer it that way. | 
 | [21.4](#21.4) | Explicitly restrict bitshift string-to-int coercion even further. | This practice is evil, but has occasional valid uses. Since we don't want to forbid it entirely, we want to make every effort to ensure it is used only when absolutely necessary. |
 | [21.6](#21.6) | Forbid the `!!value` int-to-bool shortcut. | Prefer explicit, and this example has multiple ambiguities and pitfalls. |
 | [22.4](#22.4) | Emphasise single underscore only (not double underscore). | Python developers draw a distinction between single and double underscore. We want to be clear that this distinction does not apply in Javascript. |
