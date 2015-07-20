@@ -1168,7 +1168,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
 ## Comments
 
-  - [17.1](#17.1) <a name='17.1'></a> Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - [17.1](#17.1) <a name='17.1'></a> Use multi-line `/** ... */` comments for documenting functions and classes. Include a description, specify types and values for all parameters and return values.
 
     ```javascript
     // bad
@@ -1200,10 +1200,14 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     }
     ```
 
-  - [17.2](#17.2) <a name='17.2'></a> Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - [17.2](#17.2) <a name='17.2'></a> Use `/* .. */` (comments across 1 or many lines) or `//` (inline comments or comments across 1-2 lines only) for comments that elaborate on the purpose or structure of a specific section of code. 
+    Minimise the use of inline comments (those placed on the same line as the code they describe) - instead place comments on a newline above the subject of the comment, with an empty line before the comment.
 
     ```javascript
     // bad
+    const active = true;  /* is current tab */
+
+    // okay, but use with restraint
     const active = true;  // is current tab
 
     // good
@@ -1224,6 +1228,16 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
       console.log('fetching type...');
 
       // set the default type to 'no type'
+      const type = this._type || 'no type';
+
+      return type;
+    }
+
+    // good
+    function getType() {
+      console.log('fetching type...');
+
+      /* set the default type to 'no type' */
       const type = this._type || 'no type';
 
       return type;
@@ -2127,6 +2141,7 @@ guide. These changes are already incorporated into this document.
 | [15.1](#15.1) | Reiterate this rule. | There is often a desire to allow `!= null`, which we want to explicitly reject. |
 | [15.3](#15.3) | Reverse rule. | We prefer code to be explicit, which means avoiding the implicit tests of shortcuts. |
 | [16.3](#16.3) | Forbid single-line blocks. | This makes all blocks consistent, and there is no obvious benefit to single-line blocks. |
+| [17.1](#17.1), [17.2](#17.2) | Clarify commenting guidelines. | The existing guidelines were vague about multi-line explanatory comments. |
 
 
 Any changes to this style guide (whether new amendments, or pulling in
