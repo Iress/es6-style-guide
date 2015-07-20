@@ -1916,6 +1916,13 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
   - [26.1](#26.1) <a name='26.1'></a> Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/).
 
+  - [26.2](#26.2) <a name='26.2'></a> Do not use the following ES6-specific features until they achieve better support:
+
+    * [Generators](https://github.com/lukehoban/es6features#generators): Currently too slow. See [rule 11.2](#11.2).
+    * [Proxies](http://6to5.org/docs/learn-es6/#proxies): Need browser support, which is currently lacking.
+    * [Subclassing builtins](https://github.com/lukehoban/es6features#subclassable-built-ins): Need browser support, which is patchy.
+    * [Template strings](https://github.com/lukehoban/es6features#template-strings) for literal strings: Transpiled template strings don't work with gettext. See [rule 6.4](#6.4).
+
 **[⬆ back to top](#table-of-contents)**
 
 ## ECMAScript 6 Styles
@@ -2152,6 +2159,7 @@ guide. These changes are already incorporated into this document.
 | [22.4](#22.4) | Emphasise single underscore only (not double underscore). | Python developers draw a distinction between single and double underscore. We want to be clear that this distinction does not apply in Javascript. |
 | [22.7](#22.7) | Allow divergence between filename and exported *function*. | There appears to be minimal benefit to this practice. Sometimes a file represents a module, so the filename should represent the module rather than the lone function within it. |
 | [25.1](#25.1) | Don't use `$` prefix for jQuery object variables. | We don't see the point of Hungarian notation. |
+| [26.2](#26.2) | Forbid ES6-specific functionality with poor support. | If it's not supported well in our target browsers, we shouldn't use it. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
