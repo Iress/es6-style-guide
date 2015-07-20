@@ -1850,14 +1850,16 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
 ## jQuery
 
-  - [25.1](#25.1) <a name='25.1'></a> Prefix jQuery object variables with a `$`.
+  - [25.1](#25.1) <a name='25.1'></a> Do not prefix jQuery object variables with a `$`.
+
+    > Why? Hungarian notation has limited value, and applying it to only some types of variable limits its usefulness even further.
 
     ```javascript
     // bad
-    const sidebar = $('.sidebar');
+    const $sidebar = $('.sidebar');
 
     // good
-    const $sidebar = $('.sidebar');
+    const sidebar = $('.sidebar');
     ```
 
   - [25.2](#25.2) <a name='25.2'></a> Cache jQuery lookups.
@@ -2149,6 +2151,7 @@ guide. These changes are already incorporated into this document.
 | [21.6](#21.6) | Forbid the `!!value` int-to-bool shortcut. | Prefer explicit, and this example has multiple ambiguities and pitfalls. |
 | [22.4](#22.4) | Emphasise single underscore only (not double underscore). | Python developers draw a distinction between single and double underscore. We want to be clear that this distinction does not apply in Javascript. |
 | [22.7](#22.7) | Allow divergence between filename and exported *function*. | There appears to be minimal benefit to this practice. Sometimes a file represents a module, so the filename should represent the module rather than the lone function within it. |
+| [25.1](#25.1) | Don't use `$` prefix for jQuery object variables. | We don't see the point of Hungarian notation. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
