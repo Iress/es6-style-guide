@@ -1878,12 +1878,12 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
     // good
     function setSidebar() {
-        const $sidebar = $('.sidebar');
-        $sidebar.hide();
+        const sidebar = $('.sidebar');
+        sidebar.hide();
 
         // ...stuff...
 
-        $sidebar.css({
+        sidebar.css({
             'background-color': 'pink'
         });
     }
@@ -1906,7 +1906,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     $('.sidebar > ul').hide();
 
     // good
-    $sidebar.find('ul').hide();
+    sidebar.find('ul').hide();
     ```
 
 **[⬆ back to top](#table-of-contents)**
