@@ -1588,6 +1588,9 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     ```
 
   - [21.4](#21.4) <a name='21.4'></a> If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+    You will also need to get approval from your team lead and the architecture team.
+    
+    > Why? Bitshifting is an opaque way to perform type conversion, which we want to strongly discourage.
 
     ```javascript
     // good
@@ -2142,7 +2145,7 @@ guide. These changes are already incorporated into this document.
 | [15.3](#15.3) | Reverse rule. | We prefer code to be explicit, which means avoiding the implicit tests of shortcuts. |
 | [16.3](#16.3) | Forbid single-line blocks. | This makes all blocks consistent, and there is no obvious benefit to single-line blocks. |
 | [17.1](#17.1), [17.2](#17.2) | Clarify commenting guidelines. | The existing guidelines were vague about multi-line explanatory comments. |
-
+| [21.4](#21.4) | Explicitly restrict bitshift string-to-int coercion even further. | This practice is evil, but has occasional valid uses. Since we don't want to forbid it entirely, we want to make every effort to ensure it is used only when absolutely necessary. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
