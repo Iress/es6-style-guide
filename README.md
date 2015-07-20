@@ -1738,7 +1738,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     import CheckBox from './CheckBox';
     ```
 
-  - [22.7](#22.7) <a name='22.7'></a> Use camelCase when you export-default a function. Your filename should be identical to your function's name.
+  - [22.7](#22.7) <a name='22.7'></a> Use camelCase when you export-default a function. Consider whether it will be helpful if your filename is identical to your function's name.
 
     ```javascript
     function makeStyleGuide() {
@@ -2148,6 +2148,7 @@ guide. These changes are already incorporated into this document.
 | [21.4](#21.4) | Explicitly restrict bitshift string-to-int coercion even further. | This practice is evil, but has occasional valid uses. Since we don't want to forbid it entirely, we want to make every effort to ensure it is used only when absolutely necessary. |
 | [21.6](#21.6) | Forbid the `!!value` int-to-bool shortcut. | Prefer explicit, and this example has multiple ambiguities and pitfalls. |
 | [22.4](#22.4) | Emphasise single underscore only (not double underscore). | Python developers draw a distinction between single and double underscore. We want to be clear that this distinction does not apply in Javascript. |
+| [22.7](#22.7) | Allow divergence between filename and exported *function*. | There appears to be minimal benefit to this practice. Sometimes a file represents a module, so the filename should represent the module rather than the lone function within it. |
 
 Any changes to this style guide (whether new amendments, or pulling in
 updates from the base style guide) will need to be approved by all of the
