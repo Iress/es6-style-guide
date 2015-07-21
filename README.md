@@ -1200,10 +1200,16 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     }
     ```
 
-  - [17.2](#17.2) <a name='17.2'></a> Use `/* .. */` (comments across 1 or many lines) or `//` (inline comments or comments across 1-2 lines only) for comments that elaborate on the purpose or structure of a specific section of code. 
-    Minimise the use of inline comments (those placed on the same line as the code they describe) - instead place comments on a newline above the subject of the comment, with an empty line before the comment.
+  - [17.2](#17.2) <a name='17.2'></a> Where necessary, write comments that elaborate on the purpose or structure of a specific section of code.
+    
+    + You may use either `//` (single-line comments only) or `/* .. */`.
+    + Place comments on a newline above the subject of the comment, with an empty line before the comment. Avoid inline comments (those placed on the end of the line as the code they describe), but where they exist use `//`.
+    + Do not use mid-line comments (those placed in between two pieces of code on the same line, using `/* .. */`). 
 
     ```javascript
+    // bad
+    result = foo(bar, /* 42, */ 3.1416);
+    
     // bad
     const active = true;  /* is current tab */
 
@@ -1214,7 +1220,11 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     // is current tab
     const active = true;
 
-    // bad
+    // good
+    /*  is current tab */
+    const active = true;
+
+    // bad - no introductory blank line
     function getType() {
         console.log('fetching type...');
         // set the default type to 'no type'
@@ -1233,11 +1243,25 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
         return type;
     }
 
+    // bad - double-slash comment on multiple lines.
+    function getType() {
+        console.log('fetching type...');
+
+        // set the default type to 'no type', which is the most
+        // reasonable way to handle a partially initialised object.
+        const type = this._type || 'no type';
+
+        return type;
+    }
+
     // good
     function getType() {
         console.log('fetching type...');
 
-        /* set the default type to 'no type' */
+        /*
+         * set the default type to 'no type', which is the most
+         * reasonable way to handle a partially initialised object.
+         */
         const type = this._type || 'no type';
 
         return type;
