@@ -1743,44 +1743,35 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
     }
     ```
 
-  - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, your filename should be exactly the name of the class.
+  - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, function, library or other object, your filename should reflect the name of that exported object.
+  
+  The filename should be a camelcased version of the exported object's name. If the filename has a prefix corresponding to the most local part of the folder hierarchy, that prefix may be removed from the filename.
+  
+  
     ```javascript
     // file contents
-    class CheckBox {
+    class PortfolioSecuritySelector {
         // ...
     }
-    export default CheckBox;
+    export default PortfolioSecuritySelector;
 
     // in some other file
     // bad
-    import CheckBox from './checkBox';
+    import PortfolioSecuritySelector from './portfolioSecuritySelector';
 
     // bad
-    import CheckBox from './check_box';
+    import PortfolioSecuritySelector from './PortfolioSecuritySelector';
 
     // good
-    import CheckBox from './CheckBox';
+    import PortfolioSecuritySelector from './portfolio_security_selector';
+
+    // good
+    import PortfolioSecuritySelector from './portfolio/security_selector';
     ```
 
-  - [22.7](#22.7) <a name='22.7'></a> Use camelCase when you export-default a function. Consider whether it will be helpful if your filename is identical to your function's name.
+  - [22.7](#22.7) <a name='22.7'></a> ~~Rule 22.7 has been combined with rule [22.6](#22.6).~~
 
-    ```javascript
-    function makeStyleGuide() {
-    }
-
-    export default makeStyleGuide;
-    ```
-
-  - [22.8](#22.8) <a name='22.8'></a> Use PascalCase when you export a singleton / function library / bare object.
-
-    ```javascript
-    const AirbnbStyleGuide = {
-        es6: {
-        }
-    };
-
-    export default AirbnbStyleGuide;
-    ```
+  - [22.8](#22.8) <a name='22.8'></a> ~~Rule 22.8 has been combined with rule [22.6](#22.6).~~
 
 
 **[⬆ back to top](#table-of-contents)**
@@ -2182,7 +2173,7 @@ guide. These changes are already incorporated into this document.
 | [21.4](#21.4) | Explicitly restrict bitshift string-to-int coercion even further. | This practice is evil, but has occasional valid uses. Since we don't want to forbid it entirely, we want to make every effort to ensure it is used only when absolutely necessary. |
 | [21.6](#21.6) | Forbid the `!!value` int-to-bool shortcut. | Prefer explicit, and this example has multiple ambiguities and pitfalls. |
 | [22.4](#22.4) | Emphasise single underscore only (not double underscore). | Python developers draw a distinction between single and double underscore. We want to be clear that this distinction does not apply in Javascript. |
-| [22.7](#22.7) | Allow divergence between filename and exported *function*. | There appears to be minimal benefit to this practice. Sometimes a file represents a module, so the filename should represent the module rather than the lone function within it. |
+| [22.6](#22.6), [22.7](#22.7), [22.8](#22.8) | Combine related rules, and use a camelcase rule for filenames. | The existing rules were unnecessarily repetitive. We prefer camelcased filenames rather than case-sensitive ones. |
 | [25.1](#25.1) | Don't use `$` prefix for jQuery object variables. | We don't see the point of Hungarian notation. |
 | [26.2](#26.2) | Forbid ES6-specific functionality with poor support. | If it's not supported well in our target browsers, we shouldn't use it. |
 
