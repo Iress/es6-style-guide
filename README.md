@@ -1745,7 +1745,7 @@ With thanks to [Airbnb](https://github.com/airbnb/javascript).
 
   - [22.6](#22.6) <a name='22.6'></a> If your file exports a single class, function, library or other object, your filename should reflect the name of that exported object.
   
-  The filename should be a camelcased version of the exported object's name. If the filename has a prefix corresponding to the most local part of the folder hierarchy, that prefix may be removed from the filename.
+  The filename should be a [snake_cased](https://en.wikipedia.org/wiki/Snake_case) version of the exported object's name. If the filename has a prefix corresponding to the most local part of the folder hierarchy, that prefix may be removed from the filename.
   
   
     ```javascript
